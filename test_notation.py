@@ -11,7 +11,7 @@ from notation import *
 @pytest.mark.parametrize("notes, resultat_attendu",[
     ([3,2,1,2,3,3,2,2,3], True),
     ([3,3,3,3,3,3,3,3,3], True),
-    ([-2,-1,-3,-2,-1,-1,-2,-3,-3], True), # il faut revérifier
+    ([-2,-1,-3,-2,-1,-1,-2,-3,-3], True),
     ([2,3,1,2,3,1,1,2,2,3,2], False),
     ([5,6,7,8,4,8,9,4,5], False),
     ()
@@ -32,7 +32,7 @@ def test_valider_notes(notes, resultat_attendu):
     (1.0, [-2,-1,-3,-2,-1,-1,-2,-3,-3],),
     (3.0, [2,3,1,2,3,1,1,2,2,3,2], "Erreur"),
     (2.5, [5,6,7,8,4,8,9,4,5], "Erreur"),
-    (4.0, []),
+    (4.0, [2,1,3], "Erreur"),
     (),
 
 ])
