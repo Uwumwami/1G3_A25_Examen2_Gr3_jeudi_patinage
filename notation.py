@@ -6,13 +6,13 @@ def valider_notes(notes: list[float]) -> bool:
     """
     Vérifie que la liste de notes contient exactement 9 entiers entre -3 et +3.
     :param notes: liste de notes
-    :returns: vrai si la liste et valide, sinon faux.
+    :returns: vrai si la liste est valide, sinon faux.
     """
-    if len(notes) < 9:
+    if len(notes) < 9 or len(notes) > 9:
         return False
 
     for n in notes:
-        if n > 3:
+        if n > 3 or n < -3:
             return False
 
     return True
@@ -30,10 +30,12 @@ def calculer_points(vbase: float, notes: list[float]) -> float:
 
         note_max = max(notes)
         note_min = min(notes)
-
+        compteur = 0
         for i in range(len(notes)):
             if notes[i] == note_max or note_min:
-                notes.remove(notes[i])
+                compteur += 1
+                if compteur == 1:
+                    notes.remove(notes[i])
 
         moyenne = sum(notes) / 9
         total = vbase + moyenne
